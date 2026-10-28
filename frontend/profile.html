@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#17372d">
+	<title>My Profile | Skill Exchange</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css?v=2">
+	<script src="js/config.js?v=2" defer></script>
+	<script src="js/profile.js?v=2" defer></script>
+</head>
+<body>
+	<header class="site-header">
+		<div class="header-inner">
+			<a class="brand" href="index.html" aria-label="Skill Exchange home">
+				<span class="brand-mark" aria-hidden="true">S<span>×</span></span>
+				<span class="brand-copy"><strong>Skill Exchange</strong><small>Campus community</small></span>
+			</a>
+			<nav class="main-nav" aria-label="Main navigation">
+				<a class="nav-link" href="index.html">Overview</a>
+				<a class="nav-link" href="dashboard.html?v=2">Dashboard</a>
+				<a class="nav-link" href="users.html">Members</a>
+				<a class="nav-link" href="skills.html">Skills</a>
+				<a class="nav-link" href="requests.html">Requests</a>
+				<a class="nav-link is-active" href="profile.html" aria-current="page">Profile</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="page-shell">
+		<div class="page-heading">
+			<p class="eyebrow">Your account</p>
+			<h1>My Profile<span class="title-period">.</span></h1>
+			<p class="page-subtitle">Update your details and manage your account.</p>
+		</div>
+
+		<section class="entry-panel" aria-labelledby="profile-title">
+			<div class="panel-heading"><span class="panel-kicker">Profile</span><h2 id="profile-title">Your details</h2></div>
+			<form class="entry-form" id="profile-form">
+				<label for="profile-name">Full name</label>
+				<input id="profile-name" name="name" type="text" required maxlength="100" autocomplete="name">
+				<label for="profile-location">Location</label>
+				<input id="profile-location" name="location" type="text" maxlength="120" autocomplete="address-level2">
+				<label for="profile-skills-teach">Skills I can teach <span class="optional-label">Optional</span></label>
+				<textarea id="profile-skills-teach" name="skillsToTeach" rows="3" maxlength="5200" placeholder="Separate skills with commas"></textarea>
+				<label for="profile-skills-learn">Skills I want to learn <span class="optional-label">Optional</span></label>
+				<textarea id="profile-skills-learn" name="skillsToLearn" rows="3" maxlength="5200" placeholder="Separate skills with commas"></textarea>
+				<button class="button button--primary form-submit" type="submit">Save changes</button>
+				<p class="notice" id="profile-notice" role="status" aria-live="polite" hidden></p>
+			</form>
+		</section>
+
+		<section class="entry-panel" aria-labelledby="delete-account-title">
+			<div class="panel-heading"><span class="panel-kicker">Account</span><h2 id="delete-account-title">Delete account</h2></div>
+			<p class="page-subtitle">This permanently deletes your account and its linked skills, requests, and learning exchanges. This action cannot be undone.</p>
+			<button class="button button--quiet button--danger" id="open-delete-account" type="button">Delete my account</button>
+		</section>
+	</main>
+
+	<dialog class="edit-dialog" id="delete-account-dialog" aria-labelledby="delete-dialog-title">
+		<form class="entry-form" id="delete-account-form">
+			<div class="dialog-heading">
+				<div><p class="panel-kicker">Permanent action</p><h2 id="delete-dialog-title">Confirm account deletion</h2></div>
+				<button class="icon-button" id="close-delete-account" type="button" aria-label="Close confirmation">×</button>
+			</div>
+			<p>Your associated skills, requests, and exchanges will also be deleted.</p>
+			<label><input name="confirmDeletion" type="checkbox" required> I understand that this cannot be undone.</label>
+			<div class="dialog-actions">
+				<button class="button button--secondary" id="cancel-delete-account" type="button">Keep my account</button>
+				<button class="button button--quiet button--danger" type="submit">Permanently delete account</button>
+			</div>
+			<p class="notice" id="delete-account-notice" role="status" aria-live="polite" hidden></p>
+		</form>
+	</dialog>
+
+	<footer class="site-footer"><span>Skill Exchange Platform</span><a href="dashboard.html?v=2">Back to dashboard ↑</a></footer>
+</body>
+</html>

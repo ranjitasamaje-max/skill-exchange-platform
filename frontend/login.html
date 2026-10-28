@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#17372d">
+	<title>Log in | Skill Exchange</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css?v=2">
+	<script src="js/config.js?v=2" defer></script>
+	<script src="js/auth.js?v=2" defer></script>
+</head>
+<body class="auth-page">
+	<header class="site-header">
+		<div class="header-inner">
+			<a class="brand" href="index.html" aria-label="Skill Exchange home">
+				<span class="brand-mark" aria-hidden="true">S<span>×</span></span>
+				<span class="brand-copy"><strong>Skill Exchange</strong><small>Campus community</small></span>
+			</a>
+			<nav class="main-nav" aria-label="Main navigation">
+				<a class="nav-link" href="index.html">Overview</a>
+				<a class="nav-link is-active" href="login.html" aria-current="page">Log in</a>
+				<a class="nav-link" href="signup.html">Sign up</a>
+				<a class="nav-link" href="profile.html">Profile</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="auth-main auth-main--login">
+		<section class="auth-card" aria-labelledby="login-title">
+			<div class="auth-card-heading">
+				<p class="eyebrow"><span class="eyebrow-dot"></span> Welcome back</p>
+				<h1 id="login-title">Pick up where <span>you left off.</span></h1>
+				<p class="page-subtitle">Log in to continue your skill exchanges.</p>
+			</div>
+
+			<form class="entry-form auth-form" id="login-form" novalidate>
+				<label for="login-email">Email address</label>
+				<input id="login-email" name="email" type="email" autocomplete="email" placeholder="jordan@college.edu" required maxlength="254">
+
+				<label for="login-password">Password</label>
+				<input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Your password" required>
+
+				<button class="button button--primary form-submit" type="submit">Log in <span aria-hidden="true">↗</span></button>
+				<p class="notice auth-notice" id="login-notice" role="status" aria-live="polite" hidden></p>
+			</form>
+
+			<p class="auth-switch">New to Skill Exchange? <a href="signup.html">Create an account</a></p>
+		</section>
+		<aside class="auth-aside" aria-label="About skill exchange">
+			<span class="auth-aside-mark" aria-hidden="true">S×</span>
+			<p class="eyebrow">The exchange</p>
+			<h2>Your next skill is just a conversation away.</h2>
+			<p>Share a skill. Find your next one.</p>
+		</aside>
+	</main>
+
+	<footer class="site-footer">
+		<span>Skill Exchange Platform</span>
+		<a href="index.html">Back to overview ↑</a>
+	</footer>
+</body>
+</html>

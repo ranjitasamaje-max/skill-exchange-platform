@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#17372d">
+	<title>Skills | Skill Exchange</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css?v=2">
+	<script src="js/config.js?v=2" defer></script>
+	<script src="js/skills.js?v=2" defer></script>
+</head>
+<body>
+	<header class="site-header">
+		<div class="header-inner">
+			<a class="brand" href="index.html" aria-label="Skill Exchange home">
+				<span class="brand-mark" aria-hidden="true">S<span>×</span></span>
+				<span class="brand-copy"><strong>Skill Exchange</strong><small>Campus community</small></span>
+			</a>
+			<nav class="main-nav" aria-label="Main navigation">
+				<a class="nav-link" href="index.html">Overview</a>
+				<a class="nav-link" href="dashboard.html?v=2">Dashboard</a>
+				<a class="nav-link" href="users.html">Members</a>
+				<a class="nav-link is-active" href="skills.html" aria-current="page">Skills</a>
+				<a class="nav-link" href="requests.html">Requests</a>
+				<a class="nav-link" href="profile.html">Profile</a>
+				<a class="nav-link auth-nav-link" href="login.html">Log in</a>
+				<a class="nav-link auth-nav-link" href="signup.html">Sign up</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="page-shell">
+		<div class="page-heading">
+			<p class="eyebrow">Knowledge / 02</p>
+			<h1>Skills<span class="title-period">.</span></h1>
+			<p class="page-subtitle">Find a teacher and choose whether to offer a skill in return.</p>
+		</div>
+
+		<div class="workspace-grid">
+			<section class="entry-panel" aria-labelledby="add-skill-title">
+				<div class="panel-heading"><span class="panel-kicker">02</span><h2 id="add-skill-title">Share a skill</h2></div>
+				<form id="skill-form" class="entry-form">
+					<label for="skill-name">Skill name</label>
+					<input id="skill-name" name="skillName" type="text" placeholder="e.g. Digital illustration" required maxlength="100">
+
+					<label for="skill-description">Description <span class="optional-label">Optional</span></label>
+					<textarea id="skill-description" name="description" rows="4" maxlength="2000" placeholder="A few details about this skill"></textarea>
+
+					<p class="auth-form-hint" id="skill-auth-hint" hidden>
+						<a href="login.html">Log in</a> to add a skill under your account.
+					</p>
+					<button class="button button--primary form-submit" id="add-skill-button" type="submit" disabled>Add my skill <span aria-hidden="true">+</span></button>
+					<p class="notice" id="skill-notice" role="status" aria-live="polite" hidden></p>
+				</form>
+			</section>
+
+			<section class="results-panel" aria-labelledby="skills-title">
+				<div class="list-toolbar">
+					<div><p class="panel-kicker">The skill library</p><h2 id="skills-title">People who can teach</h2></div>
+					<span class="count-label" id="skill-count">Loading</span>
+				</div>
+				<div class="skill-search">
+					<label for="skill-search-input">Search skills and teachers</label>
+					<input id="skill-search-input" type="search" autocomplete="off" placeholder="Try “crafts” or a teacher's name">
+				</div>
+				<div class="record-list" id="skills-list" aria-live="polite">
+					<p class="empty-state">Loading skills...</p>
+				</div>
+			</section>
+		</div>
+	</main>
+
+	<dialog class="edit-dialog" id="exchange-dialog" aria-labelledby="exchange-dialog-title">
+		<form class="entry-form" id="exchange-form" novalidate>
+			<div class="dialog-heading">
+				<div><p class="panel-kicker">Start learning</p><h2 id="exchange-dialog-title">Request to learn</h2></div>
+				<button class="icon-button" id="close-exchange-dialog" type="button" aria-label="Close exchange dialog">×</button>
+			</div>
+			<p class="exchange-summary" id="exchange-summary"></p>
+			<input id="requested-skill-id" name="requestedSkill" type="hidden">
+			<label for="offered-skill-id">Skill to teach in return <span class="optional-label">Optional</span></label>
+			<select id="offered-skill-id" name="offeredSkill">
+				<option value="">Skip — request one-way learning</option>
+			</select>
+			<label for="request-message">Message <span class="optional-label">Optional</span></label>
+			<textarea id="request-message" name="message" rows="3" maxlength="1000" placeholder="Add a note for the teacher"></textarea>
+			<p class="auth-form-hint" id="exchange-login-hint" hidden>
+				<a href="login.html">Log in</a> to send a learning request.
+			</p>
+			<div class="dialog-actions">
+				<button class="button button--secondary" id="cancel-exchange-dialog" type="button">Cancel</button>
+				<button class="button button--primary" id="send-exchange-request" type="submit">Send learning request <span aria-hidden="true">↗</span></button>
+			</div>
+			<p class="notice" id="exchange-notice" role="status" aria-live="polite" hidden></p>
+		</form>
+	</dialog>
+
+	<dialog class="edit-dialog" id="edit-skill-dialog" aria-labelledby="edit-skill-title">
+		<form id="edit-skill-form" class="entry-form">
+			<div class="dialog-heading">
+				<div><p class="panel-kicker">Skill details</p><h2 id="edit-skill-title">Update skill</h2></div>
+				<button class="icon-button" id="close-edit-dialog" type="button" aria-label="Close edit dialog">×</button>
+			</div>
+			<input id="edit-skill-id" name="id" type="hidden">
+			<label for="edit-skill-name">Skill name</label>
+			<input id="edit-skill-name" name="skillName" type="text" required maxlength="100">
+			<label for="edit-skill-description">Description <span class="optional-label">Optional</span></label>
+			<textarea id="edit-skill-description" name="description" rows="4" maxlength="2000"></textarea>
+			<div class="dialog-actions">
+				<button class="button button--secondary" id="cancel-edit-dialog" type="button">Cancel</button>
+				<button class="button button--primary" type="submit">Save changes</button>
+			</div>
+			<p class="notice" id="edit-skill-notice" role="status" aria-live="polite" hidden></p>
+		</form>
+	</dialog>
+
+	<footer class="site-footer"><span>Skill Exchange Platform</span><a href="index.html">Back to overview ↑</a></footer>
+</body>
+</html>

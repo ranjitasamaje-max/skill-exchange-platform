@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#17372d">
+	<title>Requests | Skill Exchange</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css?v=2">
+	<script src="js/config.js?v=2" defer></script>
+	<script src="js/requests.js?v=2" defer></script>
+</head>
+<body>
+	<header class="site-header">
+		<div class="header-inner">
+			<a class="brand" href="index.html" aria-label="Skill Exchange home">
+				<span class="brand-mark" aria-hidden="true">S<span>×</span></span>
+				<span class="brand-copy"><strong>Skill Exchange</strong><small>Campus community</small></span>
+			</a>
+			<nav class="main-nav" aria-label="Main navigation">
+				<a class="nav-link" href="index.html">Overview</a>
+				<a class="nav-link" href="dashboard.html?v=2">Dashboard</a>
+				<a class="nav-link" href="users.html">Members</a>
+				<a class="nav-link" href="skills.html">Skills</a>
+				<a class="nav-link is-active" href="requests.html" aria-current="page">Requests</a>
+				<a class="nav-link" href="profile.html">Profile</a>
+				<a class="nav-link auth-nav-link" href="login.html">Log in</a>
+				<a class="nav-link auth-nav-link" href="signup.html">Sign up</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="page-shell">
+		<div class="page-heading">
+			<p class="eyebrow">Connections / 03</p>
+			<h1>Requests<span class="title-period">.</span></h1>
+			<p class="page-subtitle">Where one skill leads to another.</p>
+		</div>
+
+		<div class="workspace-grid">
+			<section class="entry-panel" aria-labelledby="add-request-title">
+				<div class="panel-heading"><span class="panel-kicker">03</span><h2 id="add-request-title">Request to learn</h2></div>
+				<p class="page-subtitle">Choose a skill from the library to send a request to its teacher. You can offer a skill in return or request one-way learning.</p>
+				<a class="button button--primary form-submit" href="skills.html">Browse available skills <span aria-hidden="true">↗</span></a>
+				<p class="notice" id="request-notice" role="status" aria-live="polite" hidden></p>
+			</section>
+
+			<section class="results-panel" aria-labelledby="requests-title">
+				<div class="list-toolbar">
+					<div><p class="panel-kicker">Your activity</p><h2 id="requests-title">Your requests</h2></div>
+					<span class="count-label" id="request-count">Loading</span>
+				</div>
+				<div class="record-list" id="requests-list" aria-live="polite">
+					<p class="empty-state">Loading requests...</p>
+				</div>
+			</section>
+		</div>
+	</main>
+
+	<footer class="site-footer"><span>Skill Exchange Platform</span><a href="index.html">Back to overview ↑</a></footer>
+</body>
+</html>

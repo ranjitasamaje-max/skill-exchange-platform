@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#17372d">
+	<title>My Dashboard | Skill Exchange</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css?v=2">
+	<script src="js/config.js?v=2" defer></script>
+	<script src="js/dashboard.js?v=2" defer></script>
+</head>
+<body class="dashboard-page">
+	<header class="site-header">
+		<div class="header-inner">
+			<a class="brand" href="index.html" aria-label="Skill Exchange home">
+				<span class="brand-mark" aria-hidden="true">S<span>×</span></span>
+				<span class="brand-copy"><strong>Skill Exchange</strong><small>Campus community</small></span>
+			</a>
+			<nav class="main-nav" aria-label="Main navigation">
+				<a class="nav-link" href="index.html">Overview</a>
+				<a class="nav-link is-active" href="dashboard.html?v=2" aria-current="page">Dashboard</a>
+				<a class="nav-link" href="users.html">Members</a>
+				<a class="nav-link" href="skills.html">Skills</a>
+				<a class="nav-link" href="requests.html">Requests</a>
+				<a class="nav-link" href="profile.html">Profile</a>
+				<button class="nav-link dashboard-logout" id="logout-button" type="button">Log out</button>
+			</nav>
+		</div>
+	</header>
+
+	<main class="page-shell dashboard-shell">
+		<section class="dashboard-welcome" aria-labelledby="welcome-title">
+			<div>
+				<p class="eyebrow"><span class="eyebrow-dot"></span> Your exchange space</p>
+				<h1 id="welcome-title">Welcome back<span class="title-period">.</span></h1>
+				<p class="page-subtitle" id="dashboard-subtitle">Loading your profile...</p>
+			</div>
+			<a class="button button--primary" href="skills.html">Find a skill <span aria-hidden="true">↗</span></a>
+		</section>
+
+		<section class="dashboard-section" aria-labelledby="my-skills-title">
+			<div class="dashboard-section-heading">
+				<div><p class="panel-kicker">Your knowledge</p><h2 id="my-skills-title">My skills</h2></div>
+			</div>
+			<div class="dashboard-skill-columns">
+				<article class="dashboard-panel">
+					<h3>Skills I can teach</h3>
+					<div class="dashboard-chip-list" id="skills-to-teach"><p class="dashboard-loading">Loading...</p></div>
+				</article>
+			</div>
+		</section>
+
+		<section class="dashboard-section" aria-labelledby="learning-skills-title">
+			<div class="dashboard-section-heading">
+				<div><p class="panel-kicker">Your learning path</p><h2 id="learning-skills-title">Skills I Want to Learn</h2></div>
+			</div>
+			<div class="dashboard-card-list" id="learning-skills" aria-live="polite">
+				<p class="empty-state">Loading your learning skills...</p>
+			</div>
+		</section>
+
+		<section class="dashboard-section" aria-labelledby="incoming-title">
+			<div class="dashboard-section-heading">
+				<div><p class="panel-kicker">Waiting for you</p><h2 id="incoming-title">Incoming requests</h2></div>
+				<span class="count-label" id="incoming-count">Loading</span>
+			</div>
+			<div class="dashboard-card-list" id="incoming-requests" aria-live="polite">
+				<p class="empty-state">Loading incoming requests...</p>
+			</div>
+		</section>
+
+		<section class="dashboard-section" aria-labelledby="outgoing-title">
+			<div class="dashboard-section-heading">
+				<div><p class="panel-kicker">Your proposals</p><h2 id="outgoing-title">Outgoing requests</h2></div>
+				<span class="count-label" id="outgoing-count">Loading</span>
+			</div>
+			<div class="dashboard-card-list" id="outgoing-requests" aria-live="polite">
+				<p class="empty-state">Loading outgoing requests...</p>
+			</div>
+		</section>
+
+		<section class="dashboard-section" aria-labelledby="active-title">
+			<div class="dashboard-section-heading">
+				<div><p class="panel-kicker">Learning together</p><h2 id="active-title">Active learning exchanges</h2></div>
+				<span class="count-label" id="active-count">Loading</span>
+			</div>
+			<div class="dashboard-card-list" id="active-exchanges" aria-live="polite">
+				<p class="empty-state">Loading active exchanges...</p>
+			</div>
+		</section>
+
+		<section class="dashboard-section" aria-labelledby="completed-title">
+			<div class="dashboard-section-heading">
+				<div><p class="panel-kicker">Milestones reached</p><h2 id="completed-title">Completed learning exchanges</h2></div>
+				<span class="count-label" id="completed-count">Loading</span>
+			</div>
+			<div class="dashboard-card-list" id="completed-exchanges" aria-live="polite">
+				<p class="empty-state">Loading completed exchanges...</p>
+			</div>
+		</section>
+		<p class="notice dashboard-notice" id="dashboard-notice" role="status" aria-live="polite" hidden></p>
+	</main>
+
+	<footer class="site-footer"><span>Skill Exchange Platform</span><a href="index.html">Back to overview ↑</a></footer>
+</body>
+</html>

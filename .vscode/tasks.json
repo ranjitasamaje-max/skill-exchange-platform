@@ -1,0 +1,40 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start Skill Exchange backend",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"$health = try { Invoke-RestMethod -Uri 'http://localhost:5000/api/health' -TimeoutSec 2 } catch { $null }; if ($health.status -eq 'ok') { Write-Output 'Backend already running.' } else { npm run server }"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"isBackground": true,
+			"runOptions": {
+				"runOn": "folderOpen"
+			},
+			"problemMatcher": {
+				"owner": "skill-exchange-backend",
+				"pattern": {
+					"regexp": "^$"
+				},
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": ".",
+					"endsPattern": "Backend already running\\.|Server listening on 0\\.0\\.0\\.0:5000"
+				}
+			},
+			"presentation": {
+				"reveal": "always",
+				"panel": "dedicated",
+				"focus": false
+			}
+		}
+	]
+}
